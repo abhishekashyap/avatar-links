@@ -1,0 +1,22 @@
+{
+  "name": "avatar-api",
+  "version": "1.0.0",
+  "description": "REST API for random avatars",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishekashyap/avatar-api.git"
+  },
+  "author": "Abhishek Kashyap",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abhishekashyap/avatar-api/issues"
+  },
+  "homepage": "https://github.com/abhishekashyap/avatar-api#readme",
+  "dependencies": {
+    "koa": "^2.11.0"
+  }
+}
