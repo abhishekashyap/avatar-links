@@ -15,34 +15,41 @@ app.use(require('koa-body')()); // Body parser
 
 app.use(serve(path.join(__dirname, 'avatars'))); // Serving a static folder
 
-router.get('/svg', ctx => {
+function randomFile(format, ctx) {
     // random svg
-    let filenames = glob.sync('avatars/*.svg').map(name => path.basename(name));
+    let filenames = glob.sync(path.join('avatars/*.', format)).map(name => path.basename(name)); // returns basename instead of absolute path
     let n = Math.floor(Math.random() * (filenames.length)); // Generating random array index
-    console.log(filenames.length);
-    console.log(n);
+    return path.join(ctx.host, filenames[n]);
+}
 
+// router.get('/:format', cts => {
+
+// });
+
+
+router.get('/svg', ctx => {
+    console.log(randomFile('svg', ctx));
 });
 
-router.get('/boy-svg', ctx => {
+// router.get('/boy-svg', ctx => {
 
-});
+// });
 
-router.get('/girl-svg', ctx => {
+// router.get('/girl-svg', ctx => {
 
-});
+// });
 
-router.get('/png', ctx => {
+// router.get('/png', ctx => {
 
-});
+// });
 
-router.get('/boy-png', ctx => {
+// router.get('/boy-png', ctx => {
 
-});
+// });
 
-router.get('/girl-png', ctx => {
+// router.get('/girl-png', ctx => {
 
-});
+// });
 
 const PORT = 3000;
 
