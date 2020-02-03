@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/abhishekashyap/avatar-api#readme",
   "dependencies": {
-    "koa": "^2.11.0"
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-router": "^8.0.6"
   }
 }
