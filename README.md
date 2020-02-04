@@ -1,7 +1,22 @@
 # Avatar API
 Koa based API for vector avatars
 
-<!-- ## Endpoints -->
+## API Request Types
+
+#### Avatar request
+```
+http://localhost:3000/[format]?[options]
+```
+
+##### Request parameters
+**Format** _required_
+* SVG
+* PNG
+
+**Options**
+* boy
+* girl
+* man
 
 ### Installing
 
