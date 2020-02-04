@@ -15,6 +15,25 @@ app.use(require('koa-body')()); // Body parser
 
 app.use(serve(path.join(__dirname, 'avatars'))); // Serving a static folder
 
+router.get('/:format', ctx => { 
+    let link = ctx.params.format.split("-");
+    
+    if (link.length == 2) {
+        // For two parameters (GENDER-FORMAT)
+        const sex = link[0];
+        const format = link[1];
+
+        randomFileGender(sex, format, ctx).then((link) => {
+            console.log(link);
+        });
+    } else {
+        // For single paramters (FORMAT)
+        randomFile(ctx.params.format, ctx).then((link) => {
+            console.log(link);
+        });
+    }
+});
+
 async function randomFile(format, ctx) {
     // random svg
     let filenames = await glob.sync('avatars/*.' + format).map(name => path.basename(name)); // returns basename instead of absolute path
@@ -32,29 +51,6 @@ async function randomFileGender(sex, format, ctx) {
     return ctx.host + '/' + filenames[n];
 }
 
-router.get('/:format', ctx => {
-    randomFile(ctx.params.format, ctx).then((link) => {
-        console.log(link);
-    })
-});
-
-
-router.get('/:sex', ctx => {
-    console.log(ctx.params.sex);
-
-    let link = ctx.params.sex.split("-");
-
-    if (link.length == 2) {
-        const sex = link[0];
-        const format = link[1];
-
-        randomFileGender(sex, format, ctx).then((link) => {
-            console.log(link);
-        });
-    }
-    
-});
-
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`App is listening on port:${PORT}`));
