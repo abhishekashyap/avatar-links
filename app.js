@@ -17,11 +17,18 @@ app.use(serve(path.join(__dirname, 'avatars'))); // Serving a static folder
 
 async function randomFile(format, ctx) {
     // random svg
-    
     let filenames = await glob.sync('avatars/*.' + format).map(name => path.basename(name)); // returns basename instead of absolute path
-    
+
     let n = Math.floor(Math.random() * (filenames.length)); // Generating random array index
-    
+
+    return ctx.host + '/' + filenames[n];
+}
+
+async function randomFileGender(sex, format, ctx) {
+    let filenames = await glob.sync('avatars/' + sex + '*.' + format).map(name => path.basename(name));
+
+    let n = Math.floor(Math.random() * (filenames.length));
+
     return ctx.host + '/' + filenames[n];
 }
 
@@ -32,9 +39,21 @@ router.get('/:format', ctx => {
 });
 
 
-// router.get('/svg', ctx => {
+router.get('/:sex', ctx => {
+    console.log(ctx.params.sex);
+
+    let link = ctx.params.sex.split("-");
+
+    if (link.length == 2) {
+        const sex = link[0];
+        const format = link[1];
+
+        randomFileGender(sex, format, ctx).then((link) => {
+            console.log(link);
+        });
+    }
     
-// });
+});
 
 const PORT = 3000;
 
