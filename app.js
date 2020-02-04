@@ -34,7 +34,7 @@ router.get('/:format', ctx => {
 
     } else {
         // For two parameters (FORMAT?GENDER=...)
-        randomFileGender(ctx.request.query.gender, ctx.params.format, ctx)
+        randomFileGender(ctx.params.format, ctx.request.query.gender, ctx)
             .then((link) => {
                 ctx.body = link;
             })
@@ -55,7 +55,7 @@ async function randomFile(format, ctx) {
     }
 }
 
-async function randomFileGender(gender, format, ctx) {
+async function randomFileGender(format, gender, ctx) {
     let filenames = await glob.sync('avatars/' + gender + '*.' + format).map(name => path.basename(name));
 
     let n = Math.floor(Math.random() * (filenames.length));
@@ -67,6 +67,6 @@ async function randomFileGender(gender, format, ctx) {
     }
 }
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => console.log(`App is listening on port:${PORT}`));
