@@ -15,6 +15,11 @@ app.use(require('koa-body')()); // Body parser
 
 app.use(serve(path.join(__dirname, 'avatars'))); // Serving a static folder
 
+router.get('/', ctx => {
+    // Default route
+    ctx.body = 'Avatar API - https://github.com/abhishekashyap/avatar-links';
+})
+
 router.get('/:format', ctx => {
     // localhost:3000/format?querystring
 
