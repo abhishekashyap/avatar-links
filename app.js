@@ -17,23 +17,24 @@ app.use(serve(path.join(__dirname, 'avatars'))); // Serving a static folder
 
 router.get('/:format', ctx => {
     // localhost:3000/format?querystring
-    console.log(ctx.query);
-    
-    // For single paramters (FORMAT)
-    randomFile(ctx.params.format, ctx)
-        .then((link) => {
-            console.log(link);
-            ctx.body = link;
-        })
-        .catch(err => console.log(err));
 
-    // For two parameters (GENDER-FORMAT)
-    randomFileGender(sex, format, ctx)
-        .then((link) => {
-            console.log(link);
-            ctx.body = link;
-        })
-        .catch(err => console.log(err));
+    // Check if query string is empty
+    if (Object.entries(ctx.request.query).length === 0) {
+        // For single paramters (FORMAT)
+        randomFile(ctx.params.format, ctx)
+            .then((link) => {
+                ctx.body = link;
+            })
+            .catch(err => console.log(err));
+
+    } else {
+        // For two parameters (FORMAT?GENDER=...)
+        randomFileGender(ctx.request.query.gender, ctx.params.format, ctx)
+            .then((link) => {
+                ctx.body = link;
+            })
+            .catch(err => console.log(err));
+    }
 });
 
 async function randomFile(format, ctx) {
@@ -43,19 +44,19 @@ async function randomFile(format, ctx) {
     let n = Math.floor(Math.random() * (filenames.length)); // Generating random array index
 
     if (filenames.length == 0) {
-        throw new Error('404: Wrong request');
+        throw new Error('404: Wrong GET request');
     } else {
         return ctx.host + '/' + filenames[n];
     }
 }
 
-async function randomFileGender(sex, format, ctx) {
-    let filenames = await glob.sync('avatars/' + sex + '*.' + format).map(name => path.basename(name));
+async function randomFileGender(gender, format, ctx) {
+    let filenames = await glob.sync('avatars/' + gender + '*.' + format).map(name => path.basename(name));
 
     let n = Math.floor(Math.random() * (filenames.length));
 
     if (filenames.length == 0) {
-        throw new Error('404: Wrong request');
+        throw new Error('404: Wrong GET request');
     } else {
         return ctx.host + '/' + filenames[n];
     }
