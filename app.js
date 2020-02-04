@@ -43,8 +43,7 @@ async function randomFile(format, ctx) {
     let n = Math.floor(Math.random() * (filenames.length)); // Generating random array index
 
     if (filenames.length == 0) {
-        // return 'err';
-        throw new Error('fuck');
+        throw new Error('404: Wrong request');
     } else {
         return ctx.host + '/' + filenames[n];
     }
@@ -56,8 +55,7 @@ async function randomFileGender(sex, format, ctx) {
     let n = Math.floor(Math.random() * (filenames.length));
 
     if (filenames.length == 0) {
-        // return 'err';
-        throw new Error('fuck');
+        throw new Error('404: Wrong request');
     } else {
         return ctx.host + '/' + filenames[n];
     }
