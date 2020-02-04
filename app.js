@@ -15,23 +15,25 @@ app.use(require('koa-body')()); // Body parser
 
 app.use(serve(path.join(__dirname, 'avatars'))); // Serving a static folder
 
-router.get('/:format', ctx => { 
-    let link = ctx.params.format.split("-");
+router.get('/:format', ctx => {
+    // localhost:3000/format?querystring
+    console.log(ctx.query);
     
-    if (link.length == 2) {
-        // For two parameters (GENDER-FORMAT)
-        const sex = link[0];
-        const format = link[1];
+    // For single paramters (FORMAT)
+    randomFile(ctx.params.format, ctx)
+        .then((link) => {
+            console.log(link);
+            ctx.body = link;
+        })
+        .catch(err => console.log(err));
 
-        randomFileGender(sex, format, ctx).then((link) => {
+    // For two parameters (GENDER-FORMAT)
+    randomFileGender(sex, format, ctx)
+        .then((link) => {
             console.log(link);
-        });
-    } else {
-        // For single paramters (FORMAT)
-        randomFile(ctx.params.format, ctx).then((link) => {
-            console.log(link);
-        });
-    }
+            ctx.body = link;
+        })
+        .catch(err => console.log(err));
 });
 
 async function randomFile(format, ctx) {
@@ -40,7 +42,12 @@ async function randomFile(format, ctx) {
 
     let n = Math.floor(Math.random() * (filenames.length)); // Generating random array index
 
-    return ctx.host + '/' + filenames[n];
+    if (filenames.length == 0) {
+        // return 'err';
+        throw new Error('fuck');
+    } else {
+        return ctx.host + '/' + filenames[n];
+    }
 }
 
 async function randomFileGender(sex, format, ctx) {
@@ -48,7 +55,12 @@ async function randomFileGender(sex, format, ctx) {
 
     let n = Math.floor(Math.random() * (filenames.length));
 
-    return ctx.host + '/' + filenames[n];
+    if (filenames.length == 0) {
+        // return 'err';
+        throw new Error('fuck');
+    } else {
+        return ctx.host + '/' + filenames[n];
+    }
 }
 
 const PORT = process.env.PORT || 3000;
