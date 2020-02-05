@@ -51,7 +51,7 @@ async function randomFile(format, ctx) {
     if (filenames.length == 0) {
         throw new Error('404: Wrong GET request');
     } else {
-        return ctx.host + '/img/' + filenames[n];
+        return 'https://avatar-links.herokuapp.com/img/' + filenames[n];
     }
 }
 
@@ -63,7 +63,7 @@ async function randomFileGender(format, gender, ctx) {
     if (filenames.length == 0) {
         throw new Error('404: Wrong GET request');
     } else {
-        return ctx.host + '/img/' + filenames[n];
+        return 'https://avatar-links.herokuapp.com/img/' + filenames[n];
     }
 }
 
