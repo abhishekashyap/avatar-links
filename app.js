@@ -44,7 +44,7 @@ router.get('/:format', ctx => {
 
 async function randomFile(format, ctx) {
     // random svg
-    let filenames = await glob.sync('avatars/*.' + format).map(name => path.basename(name)); // returns basename instead of absolute path
+    let filenames = glob.sync('avatars/*.' + format).map(name => path.basename(name)); // returns basename instead of absolute path
 
     let n = Math.floor(Math.random() * (filenames.length)); // Generating random array index
 
@@ -56,7 +56,7 @@ async function randomFile(format, ctx) {
 }
 
 async function randomFileGender(format, gender, ctx) {
-    let filenames = await glob.sync('avatars/' + gender + '*.' + format).map(name => path.basename(name));
+    let filenames = glob.sync('avatars/' + gender + '*.' + format).map(name => path.basename(name));
 
     let n = Math.floor(Math.random() * (filenames.length));
 
