@@ -44,26 +44,26 @@ router.get('/:format', ctx => {
 
 async function randomFile(format, ctx) {
     // random svg
-    let filenames = glob.sync('avatars/*.' + format).map(name => path.basename(name)); // returns basename instead of absolute path
+    let filenames = glob.sync('avatars/img/*.' + format).map(name => path.basename(name)); // returns basename instead of absolute path
 
     let n = Math.floor(Math.random() * (filenames.length)); // Generating random array index
 
     if (filenames.length == 0) {
         throw new Error('404: Wrong GET request');
     } else {
-        return ctx.host + '/' + filenames[n];
+        return ctx.host + '/img/' + filenames[n];
     }
 }
 
 async function randomFileGender(format, gender, ctx) {
-    let filenames = glob.sync('avatars/' + gender + '*.' + format).map(name => path.basename(name));
+    let filenames = glob.sync('avatars/img/' + gender + '*.' + format).map(name => path.basename(name));
 
     let n = Math.floor(Math.random() * (filenames.length));
 
     if (filenames.length == 0) {
         throw new Error('404: Wrong GET request');
     } else {
-        return ctx.host + '/' + filenames[n];
+        return ctx.host + '/img/' + filenames[n];
     }
 }
 
