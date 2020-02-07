@@ -44,11 +44,10 @@ On localhost
 https://localhost:3000/[format]?[options]
 ```
 
-<!-- ## Screenshots
+## Example avatars
 
-![Homepage](screenshots/red5.png "Landing page")
-![Playlist](screenshots/yellow5.png "Playlist page")
-![NowPlaying](screenshots/pink5.png "Now playing") -->
+| ![Image of animated boy](avatars/boy-1.svg "Image of animated boy") | ![Image of animated girl](avatars/girl-1.svg "Image of animated girl") | ![Image of animated man](avatars/man-1.svg "Image of animated man") |
+| ![Image of animated man](avatars/man.svg "Image of animated man") | ![Image of animated girl](avatars/girl.svg "Image of animated girl") |  ![Image of animated man](avatars/man-2.svg "Image of animated man") |  ![Image of animated man](avatars/man-3.svg "Image of animated man") |
 
 
 ## Built With
