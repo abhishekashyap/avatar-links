@@ -5,7 +5,7 @@ Koa based API for vector avatars
 
 **Avatar request**
 ```
-http://localhost:3000/[format]?[options]
+https://avatar-links.herokuapp.com/[format]?[options]
 ```
 
 #### Request parameters
@@ -23,7 +23,7 @@ http://localhost:3000/[format]?[options]
 Clone the repo
 
 ```
-git clone https://github.com/abhishekashyap/avatar-api
+git clone https://github.com/abhishekashyap/avatar-links
 ```
 
 To install dependencies
@@ -36,6 +36,12 @@ To start the app use
 
 ```
 npm start
+```
+
+On localhost
+
+```
+https://localhost:3000/[format]?[options]
 ```
 
 <!-- ## Screenshots
