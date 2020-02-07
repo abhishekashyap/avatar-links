@@ -10,7 +10,7 @@ https://avatar-links.herokuapp.com/[format]?[options]
 
 #### Request parameters
 ##### Format _(required)_
-* SVG
+* png
 * PNG
 
 ##### Options
@@ -46,9 +46,9 @@ https://localhost:3000/[format]?[options]
 
 ## Example avatars
 
-| ![Image of animated boy](avatars/img/boy-1.svg "Image of animated boy") | ![Image of animated girl](avatars/img/girl-1.svg "Image of animated girl") | ![Image of animated man](avatars/img/man-1.svg "Image of animated man") |
+| ![Image of animated boy](avatars/img/boy-1.png "Image of animated boy") | ![Image of animated girl](avatars/img/girl-1.png "Image of animated girl") | ![Image of animated man](avatars/img/man-1.png "Image of animated man") |
 | --- | --- | --- |
-| ![Image of animated man](avatars/img/man.svg "Image of animated man") | ![Image of animated girl](avatars/img/girl.svg "Image of animated girl") |  ![Image of animated man](avatars/img/man-2.svg "Image of animated man") |  ![Image of animated man](avatars/img/man-3.svg "Image of animated man") |
+| ![Image of animated man](avatars/img/man.png "Image of animated man") | ![Image of animated girl](avatars/img/girl.png "Image of animated girl") |  ![Image of animated man](avatars/img/man-2.png "Image of animated man") |  ![Image of animated man](avatars/img/man-3.png "Image of animated man") |
 
 
 ## Built With
