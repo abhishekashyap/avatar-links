@@ -46,8 +46,8 @@ https://localhost:3000/[format]?[options]
 
 ## Example avatars
 
-| ![Image of animated boy](avatars/boy-1.svg "Image of animated boy") | ![Image of animated girl](avatars/girl-1.svg "Image of animated girl") | ![Image of animated man](avatars/man-1.svg "Image of animated man") |
-| ![Image of animated man](avatars/man.svg "Image of animated man") | ![Image of animated girl](avatars/girl.svg "Image of animated girl") |  ![Image of animated man](avatars/man-2.svg "Image of animated man") |  ![Image of animated man](avatars/man-3.svg "Image of animated man") |
+| ![Image of animated boy](avatars/img/boy-1.svg "Image of animated boy") | ![Image of animated girl](avatars/img/girl-1.svg "Image of animated girl") | ![Image of animated man](avatars/img/man-1.svg "Image of animated man") |
+| ![Image of animated man](avatars/img/man.svg "Image of animated man") | ![Image of animated girl](avatars/img/girl.svg "Image of animated girl") |  ![Image of animated man](avatars/img/man-2.svg "Image of animated man") |  ![Image of animated man](avatars/img/man-3.svg "Image of animated man") |
 
 
 ## Built With
