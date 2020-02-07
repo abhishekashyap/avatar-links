@@ -18,13 +18,14 @@ https://avatar-links.herokuapp.com/[format]?[options]
 * girl
 * man
 
+
 ## Example avatars
 
 | ![Image of animated boy](avatars/img/boy-1.png "Image of animated boy") | ![Image of animated girl](avatars/img/girl-1.png "Image of animated girl") | ![Image of animated man](avatars/img/man-1.png "Image of animated man") |
 | --- | --- | --- |
 | ![Image of animated man](avatars/img/man.png "Image of animated man") | ![Image of animated girl](avatars/img/girl.png "Image of animated girl") |  ![Image of animated man](avatars/img/man-2.png "Image of animated man") |  ![Image of animated man](avatars/img/man-3.png "Image of animated man") |
 
-[License]()
+[License](avatars/img/license.html)
 
 ### Installing
 
