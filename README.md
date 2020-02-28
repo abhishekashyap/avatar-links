@@ -5,7 +5,7 @@ Koa based API for vector avatars
 
 **Avatar request**
 ```
-https://avatar-links.herokuapp.com/[format]?[options]
+https://avatar-links.herokuapp.com/[format]?gender=[options]
 ```
 
 #### Request parameters
